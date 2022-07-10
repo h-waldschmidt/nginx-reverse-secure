@@ -51,7 +51,7 @@ Let's Encrypt issues certificates only for domains.
 5. We can check it by running:
 
    ```sh
-       curl https://domainname.com/app1
+   curl https://domainname.com/app1
    ```
 
    This should connect us with the first server through HTTPS.
