@@ -21,32 +21,29 @@ Let's Encrypt issues certificates only for domains.
 
    So instead you need to comment out the ssl server, which listens to port 443, in `proxy.conf`.
 
-   After that run (Make sure port 443 and 80 are not in use):
+   Run:
 
    ```sh
-   docker compose up -d
+   docker compose down
    ```
 
-   You can test if your proxy is working by running:
-
-   ```sh
-    curl domainname.com
-   ```
-
-   It should return some HTML with a 301 status code.
+   This will stop all the docker containers from this configuration.
 
 3. Now we can create our certificate by running the ACME protocol through certbot:
 
    ```sh
-    docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d example.org
+    docker compose run --rm  certbot certonly -d example.org
    ```
 
    This runs the ACME protocol with the Let's Encrypt certificate authority without changing the proxy configuration.
 
-4. Now the second server in `proxy.conf` can be uncommented and the containers can be restarted with:
+   It will give two creation options. Either trough standalone or through webroot.
+   Choose option 1 since the reverse proxy isn't running.
+
+4. Now the second server in `proxy.conf` can be uncommented and the containers can be started with:
 
    ```sh
-    docker compose restart
+    docker compose up -d
    ```
 
    Now our Reverse proxy is using HTTPS.
