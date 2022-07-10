@@ -3,7 +3,7 @@ services:
     image: nginx
     container_name: app_1
     volumes:
-      - ./sites/example1.org:/usr/share/nginx/html
+      - ./sites/app_1:/usr/share/nginx/html
     restart: always
     networks:
       - A
@@ -11,7 +11,7 @@ services:
     image: nginx
     container_name: app_2
     volumes:
-      - ./sites/example2.org:/usr/share/nginx/html
+      - ./sites/app_2:/usr/share/nginx/html
     restart: always
     networks:
       - A
