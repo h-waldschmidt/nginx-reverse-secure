@@ -19,8 +19,6 @@ Let's Encrypt issues certificates only for domains.
 
    This won't work on the first run, because the reverse proxy configuration expects an ssl certificate which doesn't exist yet.
 
-   So instead you need to comment out the ssl server, which listens to port 443, in `proxy.conf`.
-
    Run:
 
    ```sh
