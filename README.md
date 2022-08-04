@@ -38,7 +38,7 @@ Let's Encrypt issues certificates only for domains.
    It will give two creation options. Either trough standalone or through webroot.
    Choose option 1 since the reverse proxy isn't running.
 
-4. Now the second server in `proxy.conf` can be uncommented and the containers can be started with:
+4. Now our certificates are created and the containers can be started with:
 
    ```sh
     docker compose up -d
